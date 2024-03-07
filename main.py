@@ -23,8 +23,9 @@ while True:
     keys = pg.key.get_pressed()
     player.move()
     screen.fill((0, 0, 0))
-
-    draw.bg(player.p_angle, pg.Color("darkgray"), "images/cosmos.jpg", False, pg.Color("black"))
+    
+    #вот тут если вместо False написать True, будет небо, но фпс упадёт в 2 раза
+    draw.bg(player.p_angle, pg.Color("darkgray"), "images/cosmos.jpg", False, pg.Color("black")) 
     walls = raycastingwalls(player, draw.textures)
     draw.world(walls + [obj.object_locate(player) for obj in sprites.list_of_objects])
     draw.fps(clock)
